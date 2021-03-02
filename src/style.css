@@ -1,11 +1,14 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.weather-app-wrapper {
+  max-width: 600px;
+  margin: 0 auto;
+}
 .weather-app {
   border: 1px solid #b1b1b1;
   border-radius: 8px;
-  max-width: 600px;
-  margin: 0 auto;
   margin-top: 40px;
   padding: 20px;
 }
@@ -32,4 +35,26 @@ li {
   line-height: 20px;
   margin: 0;
   padding: 0;
+}
+
+strong {
+  font-size: 48px;
+  font-weight: normal;
+}
+
+small {
+  align: center;
+  margin-top: 5px;
+}
+
+.overview {
+  margin-bottom: 20px;
+}
+
+.float-left {
+  padding-left: 10px;
+}
+
+.clearfix-weather-temperature {
+  padding-top: 2px;
 }
