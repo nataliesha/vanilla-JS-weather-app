@@ -59,3 +59,11 @@ small {
 .clearfix-weather-temperature {
   padding-top: 2px;
 }
+
+.clearfix-weather-temperature .active {
+  color: black;
+  cursor: default;
+}
+.clearfix-weather-temperature .active:hover {
+  text-decoration: none;
+}
