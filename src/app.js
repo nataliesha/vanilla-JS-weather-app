@@ -36,10 +36,20 @@ iconElement.setAttribute("alt", response.data.weather[0].description);
 
 }
 
+function displayForecast(response) {
+    let forecastElement = document.querySelector("#forecast");
+    forecast;
+    console.log(response.data.list[0]);
+    
+}
+
 function search(city) {
 let apiKey = "9c8bafe634beca68b8859c59c1ca6768";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 axios.get(apiUrl).then(displaytemperature);
+
+apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+axios.get(apiUrl).then(displayForecast);
    
 }
 
