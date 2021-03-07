@@ -38,8 +38,16 @@ iconElement.setAttribute("alt", response.data.weather[0].description);
 
 function displayForecast(response) {
     let forecastElement = document.querySelector("#forecast");
-    forecast;
-    console.log(response.data.list[0]);
+    forecastElement.innerHTML = 
+    ` <div class="col-2">
+                        <h3>
+                            12:00
+                        </h3>
+                        <img src="https://ssl.gstatic.com/onebox/weather/48/rain_s_cloudy.png" alt="" />
+                        <div class="weather-forecast-temperature">
+                            <strong>16°</strong> 15°
+                        </div>
+                    </div>`;
     
 }
 
