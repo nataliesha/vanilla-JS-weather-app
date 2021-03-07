@@ -14,6 +14,21 @@ function formatDate(timestamp) {
     return `${day} ${hours}:${minutes}`;
 }
 
+function formatHours(timestamp) {
+    let date = new Date(timestamp);
+    let hours = date.getHours();
+     if (hours < 10) {
+        hours = `0${hours}`;
+    }
+    let minutes = date.getMinutes();
+    if (minutes < 10) {
+        minutes = `0${minutes}`;
+    }
+    let days = ["Sunday", "Monday", "Thusday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    let day = days[date.getDay()];
+    return `${hours}:${minutes}`;
+}
+
 function displaytemperature(response) {
 let temperatureElement = document.querySelector("#temperature");
 let cityElement = document.querySelector("#city");
@@ -38,19 +53,32 @@ iconElement.setAttribute("alt", response.data.weather[0].description);
 
 function displayForecast(response) {
     let forecastElement = document.querySelector("#forecast");
-    let forecast = response.data.list[0];
-    console.log(forecast);
-    forecastElement.innerHTML = 
-    ` <div class="col-2">
+    forecastElement.innerHTML = null;
+    let forecast = null;
+
+    for (let index = 0; index < 6; index++) {
+            forecast = response.data.list[index];
+            forecastElement.innerHTML += ` 
+            <div class="col-2">
                         <h3>
-                            12:00
+                            ${formatHours(forecast.dt * 1000)}
                         </h3>
-                        <img src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" 
-                        alt="" />
+                        <img 
+                        src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" 
+                        alt="" 
+                        />
                         <div class="weather-forecast-temperature">
-                            <strong>${Math.round(forecast.main.temp_max)}°</strong> ${Math.round(forecast.main.temp_min)}°
+                            <strong>
+                            ${Math.round(forecast.main.temp_max)}°
+                            </strong> 
+                            ${Math.round(forecast.main.temp_min)}°
                         </div>
                     </div>`;
+
+    }
+     
+    
+
     
 }
 
